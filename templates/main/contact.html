@@ -1,0 +1,20 @@
+
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'main/contact/contactSt.css' %}">
+{% endblock head %}
+
+{% block section %}
+<section class="contact-section">
+    <div class="contact-links-field">
+
+        <a href="#" class="contact-link mail"><i class="fa-solid fa-envelope"></i></a>
+        <a href="#" class="contact-link facebook"> <i class="fa fa-brands fa-square-facebook"></i></a>
+        <a href="#" class="contact-link instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#" class="contact-link twitter"><i class="fa-brands fa-twitter"></i></a>
+        <a href="#" class="contact-link youtube"><i class="fa-brands fa-youtube"></i></a>
+    </div>
+</section>
+{% endblock %}

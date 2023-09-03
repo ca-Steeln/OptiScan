@@ -1,0 +1,27 @@
+
+<nav class="main-nav" id="main-nav-id">
+
+    <div class="logo">
+        <h2>COMPANY</h2>
+    </div>
+    <div class="primary-navigation">
+
+        {% include 'base/parts/nav-links.html' %}
+
+        <div class="nav-dropdown-menu" id="nav-dropdown-menu">
+            <button type="button" class="btn-dropdown-toggle nav-btn fa fa-solid fa-info"></button>
+            <div class="nav-menu" id="nav-menu">
+                <button type="button" class="btn-dropdown-toggle fa fa-solid fa-xmark"></button>
+                <ul>
+                    <h2>How It Works:</h2>
+                    <li><h3>Input:</h3><p> Share your text and keywords.</p></li>
+                    <li><h3>Analysis:</h3><p> Watch as our wizardry highlights keyword matches within your content.</p></li>
+                    <li><h3>Optimize:</h3><p> Fine-tune your content for ultimate impact.</p></li>
+                </ul>
+            </div>
+            <div class="empty-field-toggle" id="nav-empty-field-toggle"></div>
+
+        </div>
+
+    </div>
+</nav>

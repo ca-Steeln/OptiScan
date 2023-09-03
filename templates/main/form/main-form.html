@@ -1,0 +1,36 @@
+
+{% load static %}
+
+<div class="matches-card">
+    <div class="matches-card-grid content-border" id="resualt-card-grid">
+        {% if content_matches%}
+
+            <div class="matches-nav">
+
+                <div class="matches-count">
+                    <p class="content-border">{{matches_count|default:"undefined."}}</p>
+                </div>
+
+                <div class="options" options>
+                    <button copy type="button" class="copy-content-button fa-regular fa-copy" id="id-copyResultContent"></button>
+                    {% comment %} <button print type="button" class="print-content-button fa-solid fa-print" id="id-printResultContent"></button> {% endcomment %}
+                </div>
+
+            </div>
+
+
+            <div class="content-matches" id="id-content-matches">
+                <div class="paper">
+                    <p>{{content_matches}}</p>
+                </div>
+            </div>
+            {% block script %}
+                <script src="{% static 'main/form/main-formSc.js' %}"></script>
+            {% endblock script %}
+        {% else %}
+            <div class="empty-matches">
+                <p>no resualt found yet.</p>
+            </div>
+        {% endif %}
+    </div>
+</div>

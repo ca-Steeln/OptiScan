@@ -1,0 +1,275 @@
+
+/* base ------------------------ */
+:root{
+
+    --main-c: #4b0ff4;
+    --main-cc: #8d5dff;
+    --header-h: 5.7rem;
+}
+
+*,
+*::after,
+*::before{
+    box-sizing: border-box;
+}
+
+
+header{
+    display: grid;
+    height: var(--header-h);
+    width: 100%;
+}
+
+.main-nav{
+
+    display: grid;
+    gap: 2rem;
+    align-items: center;
+    background-color: #f0f0f0;
+    grid-auto-flow: column;
+    height: var(--header-h);
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+    padding: 0 2%;
+    box-shadow: 5px 3px 5px 3px rgb(119 122 175 / 25%);
+}
+
+.logo{
+    display: grid;
+    place-items: center;
+    min-width: fit-content;
+}
+
+.logo h2{
+
+    text-decoration: none;
+    color: #4b00ff;
+    font-size:2rem;
+    font-weight: bold;
+    margin: 0;
+    cursor: pointer;
+}
+
+
+.primary-navigation{
+    display: grid;
+    justify-self: end;
+    align-items: center;
+    grid-template-columns:  1fr auto;
+    grid-auto-flow: column;
+    list-style: none;
+    width: 100%;
+
+}
+
+
+.primary-navigation .nav-links {
+    display: grid;
+    justify-self: center;
+    width: fit-content;
+    gap: 2rem;
+    grid-auto-flow: column;
+    list-style:none;
+    margin: 0;
+    padding: 0;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+.primary-navigation .nav-links > *{
+    display: grid;
+    place-content: center;
+}
+
+.primary-navigation .nav-links a,
+.primary-navigation .nav-links button{
+    color: gray;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 200ms ease;
+    padding: 0;
+}
+
+.primary-navigation .nav-links a:hover,
+.primary-navigation .nav-links a:active{
+    color: #4b00ff;
+}
+
+
+/* dropdown menu -------------------- */
+.nav-dropdown-menu{
+    display: grid;
+    justify-self: end;
+    position: relative;
+    border-radius: 5074851852px;
+    width: fit-content;
+    z-index: 100;
+}
+
+.btn-dropdown-toggle{
+    display: grid;
+    justify-self: end;
+    aspect-ratio: 1 / 1;
+    border-style: none;
+    width: fit-content;
+    max-height: fit-content;
+    padding: .4rem;
+    cursor: pointer;
+    border: var(--main-cc) 2px solid;
+    border-radius: 50%;
+    transition: 150ms ease;
+    outline: none;
+}
+
+.nav-dropdown-menu .btn-dropdown-toggle:focus{
+    color: #4b0ff4;
+}
+
+#nav-menu{
+    display: none;
+}
+
+.nav-menu{
+    display: grid;
+    justify-items: end;
+    gap: 1rem;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    z-index: 50;
+    width: 16rem;
+    padding: 1rem;
+    border-radius: .4rem;
+    background-color: #f2f2f2;
+    transition: all 150ms ease;
+    border: var(--main-cc) 2px solid;
+}
+
+.nav-menu button {
+
+    display: none;
+}
+
+.nav-menu ul {
+    display: grid;
+    gap: .5rem;
+    width: 100%;
+    height: fit-content;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.nav-menu ul h2{
+    font-weight: bold;
+    color: var(--main-c);
+}
+.nav-menu ul h3 {
+    font-weight: 600;
+    color: var(--main-cc);
+}
+
+.nav-menu li{
+    display: block;
+    list-style:circle;
+}
+
+
+.nav-menu ul li p{
+
+    padding-left: .7rem ;
+}
+
+/* media ------------------------------------------ */
+
+@media screen and (max-width: 900px){
+    .primary-navigation {
+
+        gap: 1rem;
+    }
+
+    .primary-navigation .nav-links {
+        justify-self: end;
+        gap: 1rem;
+    }
+}
+
+@media screen and (max-width: 768px){
+    .main-nav .nav-links,
+    .main-nav .logo {
+
+        font-size: 80%;
+    }
+}
+
+@media screen and (max-width: 620px){
+    .main-nav .nav-links,
+    .main-nav .logo {
+
+        font-size: 60%;
+    }
+
+    .primary-navigation{
+
+        gap: 1rem;
+    }
+}
+
+@media screen and (max-width: 480px){
+
+    .main-nav{
+        justify-items: start;
+        padding: 0 4%;
+    }
+
+    .main-nav .logo {
+
+        font-size: 50%;
+    }
+
+    .primary-navigation{
+        grid-template-columns: auto;
+    }
+
+    .primary-navigation .nav-links {
+
+        display: none;
+    }
+
+    .nav-dropdown-menu{
+
+        position: static;
+        width: 100%;
+        height: 100%;
+    }
+
+    .nav-menu{
+        grid-template-rows: auto 1fr;
+        position: fixed;
+        gap: 1rem;
+        top: 0;
+        width: 70%;
+        border-radius: .4rem 0 0 .4rem;
+        height: 100%;
+    }
+
+    .nav-menu button {
+
+        display: block;
+    }
+
+    .empty-field-toggle{
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 40;
+        width: 100%;
+        background-color: #b7b7c5;
+        opacity: .6 ;
+        height: 100%;
+    }
+
+
+}

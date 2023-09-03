@@ -1,0 +1,64 @@
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    {% block head %}
+    {% endblock head %}
+
+    <link rel="stylesheet" href="{% static 'base/base.css' %}">
+    <link rel="stylesheet" href="{% static 'base/header/header.css' %}">
+    <link rel="stylesheet" href="{% static 'base/footer/footerStyle.css' %}">
+    <link rel="stylesheet" href="{% static 'messages/toastsStyle.css' %}">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    {% comment %} <link href="{% static 'fontawesomefree/css/fontawesome.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'fontawesomefree/css/brands.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'fontawesomefree/css/solid.css' %}" rel="stylesheet" type="text/css"> {% endcomment %}
+
+    <title>{% block title %}name less{% endblock title %}</title>
+
+</head>
+    <body>
+        <header>
+            {% include './header.html' %}
+        </header>
+
+        {% block notifications %}
+        {% endblock notifications %}
+
+        {% include 'messages/toasts.html' %}
+
+
+        {% block section %}
+        {% endblock section %}
+
+        <footer>
+            {% include './footer.html' %}
+        </footer>
+
+
+        {% block script %}
+        {% endblock script %}
+        <script src="{% static 'base/base.js' %}"></script>
+        <script src="{% static 'base/header/headerSc.js' %}"></script>
+        {#} <script src="{% static 'base/footer/footer.js' %}"></script> {#}
+        <script src="https://unpkg.com/htmx.org@1.9.2"></script>
+        <script src="{% static 'messages/toastsSc.js' %}"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script>
+            document.body.addEventListener("htmx:configRequest", (e)=>{
+                e.detail.headers['X-CSRFToken'] = '{{ csrf_token }}'
+            })
+
+        </script>
+
+    </body>
+</html>

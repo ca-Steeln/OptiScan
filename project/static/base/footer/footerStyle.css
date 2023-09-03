@@ -1,0 +1,232 @@
+
+
+footer{
+    display: grid;
+    bottom: 0;
+    width: 100%;
+    padding: 1%;
+
+}
+
+.footer-field{
+
+    display: grid;
+    grid-template-rows: 1fr 5rem;
+    border: var(--main-c) 2px solid;
+    border-radius: .4rem;
+    min-height: 15rem;
+}
+
+.footer-content{
+    display: grid;
+    gap: 1rem;
+    justify-content: center;
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    width: 100%;
+    padding: 1rem;
+    background-color: #cecfff;
+}
+
+.footer-content > ::before{
+    display: grid;
+    align-items: center;
+    color: var(--main-c);
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+
+.footer-content .campany-info{
+    display: grid;
+    justify-self: start;
+    font-weight: bold;
+    color: var(--main-c);
+
+}
+
+.footer-content .campany-info::before{
+
+    content: 'CAMPANY';
+    font-size: 3rem;
+}
+
+.description{
+    display: grid;
+}
+
+.description::before{
+    content: 'Get Started Today';
+}
+
+.description p {
+
+    font-weight: bold;
+}
+
+.footer-navigation{
+    display: grid;
+    align-items: center;
+    gap: 1rem;
+    list-style: none;
+    height: 100%;
+}
+
+.footer-navigation::before{
+    content: 'Get Around';
+}
+
+.footer-navigation .nav-links {
+    display: grid;
+    width: fit-content;
+    gap: 1rem;
+    grid-auto-flow: row;
+    list-style:none;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+
+
+.footer-navigation .nav-links a{
+    color: #4b00ff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 200ms ease;
+    padding: 0;
+}
+
+
+.footer-summary{
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    background-color:var(--main-c);
+}
+
+/* rights content ------------ */
+
+.rights-content-field{
+
+    display: grid;
+    align-items: center;
+    justify-content: center;
+}
+
+.rights-content-field p {
+
+    color: #f2f2f2;
+    font-weight: bold;
+}
+
+/* links -----------------------*/
+.socialMedia-contact-field{
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    grid-auto-flow: column;
+    border: var(--main-c) 2px solid;
+    border-radius: .4rem;
+}
+
+.socialMedia-contact-field .contact-link {
+    display: grid;
+    place-items: center;
+
+    color: #f2f2f2;
+    aspect-ratio: 1 / 1;
+    border-radius: .4rem;
+    font-weight: bold;
+    cursor: pointer;
+    border-style: none;
+    outline: none;
+    text-decoration: none;
+}
+
+.socialMedia-contact-field .contact-link i{
+    display: grid;
+    place-items: center;
+}
+.socialMedia-contact-field .contact-link i::before{
+
+    font-size: 2rem;
+}
+
+.socialMedia-contact-field .mail:active {
+
+    color: #c71610;
+}
+
+.socialMedia-contact-field .facebook:active {
+
+    color: #3b5998;
+}
+
+.socialMedia-contact-field .instagram:active {
+
+    color: #fbad50;
+}
+
+.socialMedia-contact-field .twitter:active {
+
+    color: #00acee;
+}
+
+.socialMedia-contact-field .youtube:active {
+
+    color: #c4302b;
+}
+
+/* - --------------------------------------------*/
+
+@media screen and (max-width: 724px) {
+
+    .description{
+        grid-row: 2;
+        grid-column: span 2;
+
+    }
+
+}
+
+@media screen and (max-width: 560px) {
+
+    .footer-content .campany-info::before{
+
+        font-size: 2.5rem;
+    }
+
+}
+
+
+@media screen and (min-width: 380px) {
+    .footer-summary{
+
+        padding: 0 1rem;
+    }
+
+    .socialMedia-contact-field{
+        gap: 1.5rem;
+    }
+
+}
+
+@media screen and (max-width: 360px) {
+
+    .footer-content{
+        justify-content: start;
+        gap: 1.5rem;
+    }
+
+    .footer-navigation{
+        grid-row: 2;
+        grid-column: span 2;
+    }
+
+    .description{
+        grid-row: 3;
+        grid-column: span 2;
+
+    }
+
+}

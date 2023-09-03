@@ -1,0 +1,9 @@
+
+django==4.2
+django-dotenv
+django-htmx
+fontawesomefree<=6
+uuid
+pillow
+django-storages
+itertools

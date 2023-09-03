@@ -1,0 +1,108 @@
+
+.contact-links-field{
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, 5rem);
+    padding: 1rem;
+    width: 100%;
+    border: var(--main-c) 2px solid;
+    border-radius: .4rem;
+}
+
+.contact-links-field .contact-link {
+    display: grid;
+    place-items: center;
+    color: #f2f2f2;
+    aspect-ratio: 1 / 1;
+    border-radius: .4rem;
+    font-weight: bold;
+    cursor: pointer;
+    border-style: none;
+    outline: none;
+    text-decoration: none;
+}
+
+/* links -----------------------*/
+
+.contact-links-field .mail{
+
+    background-color: #c71610;
+}
+.contact-links-field .mail:active {
+
+    color: #c71610;
+    background-color: #f2f2f2;
+    box-shadow: 0 0 0 2px #c71610;
+}
+
+
+.contact-links-field .facebook{
+
+    background-color: #3b5998;
+}
+.contact-links-field .facebook:active {
+
+    color: #3b5998;
+    background-color: #f2f2f2;
+    box-shadow: 0 0 0 2px  #3b5998;
+}
+
+
+.contact-links-field .instagram{
+
+    background-color: #cd486b;
+}
+.contact-links-field .instagram:active {
+
+    color: #fbad50;
+    background-color: #f2f2f2;
+    box-shadow: 0 0 0 2px #cd486b;
+}
+
+
+.contact-links-field .twitter{
+
+    background-color: #00acee;
+}
+.contact-links-field .twitter:active {
+
+    color: #00acee;
+    background-color: #f2f2f2;
+    box-shadow: 0 0 0 2px #00acee;
+}
+
+.contact-links-field .youtube{
+
+    background-color: #c4302b;
+}
+.contact-links-field .youtube:active {
+
+    color: #c4302b;
+    background-color: #f2f2f2;
+    box-shadow: 0 0 0 2px #c4302b;
+}
+
+/* - --------------------------------------------*/
+
+.contact-links-field .contact-link i{
+    display: grid;
+    place-items: center;
+}
+.contact-links-field .contact-link i::before{
+
+    font-size: 3rem;
+}
+
+
+@media screen and (min-width: 768px) {
+
+    .contact-links-field{
+
+        grid-template-columns: repeat(auto-fit, 8rem);
+    }
+
+    .contact-links-field .contact-link i::before{
+        font-size: 5rem;
+    }
+
+}

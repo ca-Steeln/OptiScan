@@ -1,0 +1,144 @@
+
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block title %}
+main view page
+{% endblock title %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'main/main.css' %}">
+{% endblock head %}
+
+{% comment %} {% block notifications %}
+    {% if messages %}
+        <div class="notifications-field">
+            {% for msg in messages %}
+                <div class="notification" style="background-color:#cecfff; border-radius: .4rem;">
+                    {% if msg %}
+                        <p>notification: '{{msg}}'.</p>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+{% endblock notifications %} {% endcomment %}
+
+{% block section %}
+
+<section class="section-field" id="services">
+    <div class="form-card-field">
+        <div class="form-card-grid content-border">
+            <form action="." method="post" hx-post="." hx-swap="#resualt-card-grid" hx-target="#resualt-card" name="form-card" id="main-form" class="form-card" >
+                {% csrf_token %}
+                <div class="htmx-indicator">Loading...</div>
+                {{form.slug}}
+                <div class="main-form-items">
+                    <!-- required elements -->
+                    <div class="main-ele">
+                        <label for="{{form.key_word.id_for_label}}" class="key-content">
+                            {{form.key_word}}
+                        </label>
+
+                        <label for="{{form.content.id_for_label}}" class="tested-content">
+                            {{form.content}}
+                        </label>
+                    </div>
+
+                    <!-- less required elements -->
+                    <div class="less-ele">
+                        <div class="switches-field settings">
+                            <div class="switches">
+                                <label class="switch-label">
+                                    <span class="switch-content">{{form.case.name}}</span>
+                                    <div class="switch">
+                                        {{form.case}}
+                                        <span class="slider"></span>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="switches-field search-types">
+                            <div class="switches">
+
+                                {% for type_search in form.search_type %}
+
+                                    {% if type_search.id_for_label == 'id_custom_search' %}
+                                        <div class="switch-container" id="{{type_search.id_for_label}}-switch">
+                                            <label for="{{type_search.id_for_label}}" class="switch-label">
+
+                                                <label for="{{form.num_keys.id_for_label}}" class="num-keys">
+                                                    {{ form.num_keys }}
+                                                </label>
+
+                                                <div class="switch">
+                                                    {{type_search.tag}}
+                                                    <span class="slider"></span>
+                                                </div>
+
+                                            </label>
+                                        </div>
+                                    {% else %}
+                                        <div class="switch-container" id="{{type_search.id_for_label}}-switch">
+                                            <label for="{{type_search.id_for_label}}" class="switch-label">
+                                                <span class="switch-content">{{type_search.choice_label}}</span>
+                                                <div class="switch">
+                                                    {{type_search.tag}}
+                                                    <span class="slider"></span>
+                                                </div>
+
+                                            </label>
+                                        </div>
+                                    {% endif %}
+
+                                {% endfor %}
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="switches-field search-behavior">
+                            <div class="switches">
+
+                                {% for behavior_search in form.search_behavior %}
+
+                                    <div class="switch-container" id="{{behavior_search.id_for_label}}-switch">
+                                        <label for="{{behavior_search.id_for_label}}" class="switch-label">
+                                            <span class="switch-content">{{behavior_search.choice_label}}</span>
+                                            <div class="switch">
+                                                {{behavior_search.tag}}
+                                                <span class="slider"></span>
+                                            </div>
+
+                                        </label>
+                                    </div>
+
+                                {% endfor %}
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="main-submit-btn">
+
+                    <button type="submit" id="form-button" > Analyze </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="matches-card-field" id="resualt-card">
+
+        {% include 'main/form/main-form.html' %}
+
+    </div>
+</section>
+{% endblock section %}
+
+{% block script %}
+    <script src="{% static 'main/main.js' %}"></script>
+{% endblock script %}
