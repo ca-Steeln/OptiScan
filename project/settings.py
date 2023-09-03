@@ -13,7 +13,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 from django.contrib.messages import DEBUG, INFO, SUCCESS, WARNING, ERROR
 
 from pathlib import Path
-from os import path
+from os import path, environ
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -23,10 +23,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-l6$_&u_436+*xz!#*tq*5zla7sz5set+luzxa^f3xlb&284dd^'
+SECRET_KEY = environ.get('DJANGO_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = str(environ.get('DEBUG')) == '300410'
 
 ALLOWED_HOSTS = []
 
